@@ -8,24 +8,18 @@
         <hr class="h-px mb-8 bg-gray-300 border-0 dark:bg-gray-700">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
+            {% for house in houses %}
+                {% include '_partials/listing/_card.html.twig' with {'listing': house} %}
+            {% endfor %}
         </div>
 
         <h2 class="text-2xl font-semibold text-gray-900 mb-1 mt-20">Nos annonces d'appartements !</h2>
         <hr class="h-px mb-8 bg-gray-300 border-0 dark:bg-gray-700">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
-            {% include '_partials/listing/_card.html.twig' %}
+            {% for apartment in apartments %}
+                {% include '_partials/listing/_card.html.twig' with {'listing': apartment} %}
+            {% endfor %}
         </div>
     </main>
 {% endblock %}
