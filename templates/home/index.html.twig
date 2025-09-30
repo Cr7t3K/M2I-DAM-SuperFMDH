@@ -1,10 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Acceuil{% endblock %}
 
 {% block body %}
+    <main class="container mx-auto px-6 py-8">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-1">Nos annonces de maisons !</h2>
+        <hr class="h-px mb-8 bg-gray-300 border-0 dark:bg-gray-700">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+        </div>
+
+        <h2 class="text-2xl font-semibold text-gray-900 mb-1 mt-20">Nos annonces d'appartements !</h2>
+        <hr class="h-px mb-8 bg-gray-300 border-0 dark:bg-gray-700">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+            {% include '_partials/listing/_card.html.twig' %}
+        </div>
+    </main>
 {% endblock %}
