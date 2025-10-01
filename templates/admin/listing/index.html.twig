@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+    <section id="listings" class="mt-8">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-3xl font-bold">List of Listings</h1>
+            <a href="{{ path('app_admin_listing_new') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <i class="fas fa-plus mr-2"></i> Add
+            </a>
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <table class="min-w-full bg-white">
+                <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">ID</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">Title</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">Price</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">City</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">Property Type</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">Transaction Type</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">Description</th>
+                    <th class="py-2 px-4 bg-gray-200 text-gray-600 font-bold uppercase text-sm text-left">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for listing in listings %}
+                    <tr class="border-b">
+                        <td class="py-2 px-4 text-left">{{ listing.id }}</td>
+                        <td class="py-2 px-4 text-left">{{ listing.title }}</td>
+                        <td class="py-2 px-4 text-left">{{ listing.price }}</td>
+                        <td class="py-2 px-4 text-left">{{ listing.city }}</td>
+                        <td class="py-2 px-4 text-left">{{ listing.propertyType.name }}</td>
+                        <td class="py-2 px-4 text-left">{{ listing.transactionType.name }}</td>
+                        <td class="py-2 px-4 text-left">{{ listing.description }}</td>
+                        <td class="py-2 px-4 text-left flex gap-3">
+                                <button type="submit" onclick="return confirm('Confirm action ?')" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-power-off"></i>Deactivate
+                                </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

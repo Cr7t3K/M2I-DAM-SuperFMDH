@@ -1,0 +1,39 @@
+<aside class="bg-gray-800 text-white w-64 py-4 flex flex-col justify-between">
+    <nav>
+        <ul>
+            <li >
+                <a href="#users"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white {% if "app_admin_user_" in app.current_route %}bg-gray-700 text-white{% endif %}"
+                >
+                    <i class="fas fa-users mr-3"></i> Users
+                </a>
+            </li>
+            <li >
+                <a href="{{ path('app_admin_listing_list') }}"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white {% if "app_admin_listing_" in app.current_route %}bg-gray-700 text-white{% endif %}"
+                >
+                    <i class="fas fa-bullhorn mr-3"></i> Listings
+                </a>
+            </li>
+            <li >
+                <a href="{{ path('app_admin_property_type_list') }}"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white {% if "app_admin_property_type_" in app.current_route %}bg-gray-700 text-white{% endif %}"
+                >
+                    <i class="fas fa-building mr-3"></i> Property Types
+                </a>
+            </li>
+            <li >
+                <a href="{{ path('app_admin_transaction_type_list')}}"
+                   class="flex items-center px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white {% if "app_admin_transaction_type_" in app.current_route %}bg-gray-700 text-white{% endif %}"
+                >
+                    <i class="fas fa-exchange-alt mr-3"></i> Transaction Types
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="px-4 fixed bottom-6">
+        <a href="{{ path('app_home') }}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">
+            <i class="fas fa-sign-out-alt mr-2"></i> Exit administration
+        </a>
+    </div>
+</aside>
