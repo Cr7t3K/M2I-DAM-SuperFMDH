@@ -6,14 +6,14 @@
     </div>
     <div class="p-4">
         <div class="flex justify-between items-center">
-            <h3 class="listing-title text-gray-900 font-bold text-xl">{{ listing['title'] }}</h3>
-            <p class="text-gray-900 font-semibold">{{ listing['price'] }}</p>
+            <h3 class="listing-title text-gray-900 font-bold text-xl">{{ listing.title }}</h3>
+            <p class="text-gray-900 font-semibold">{{ listing.price }}</p>
         </div>
-        <p class="text-gray-600">{{ listing['city'] }} - {{ listing['postal_code'] }}, France</p>
-        <p class="text-gray-500 mt-2">{{ listing['short_description'] }}</p>
+        <p class="text-gray-600">{{ listing.city }}, France</p>
+        <p class="text-gray-500 mt-2">{{ listing.description }}</p>
         <div class="flex items-center justify-between mt-3">
             <button class="px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white text-xs font-bold uppercase rounded">Contact</button>
-            <a href="{{ path('app_listing_house_show', {'id': listing['id']}) }}" class="px-3 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 text-xs font-bold uppercase rounded">Details</a>
+            <a href="{{ path('app_listing_house_show', {'id': listing.id}) }}" class="px-3 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 text-xs font-bold uppercase rounded">Details</a>
         </div>
     </div>
 </div>
