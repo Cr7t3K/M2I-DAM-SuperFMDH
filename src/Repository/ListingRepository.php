@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Listing;
+use App\Enum\PropertyTypeEnum;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -16,28 +17,17 @@ class ListingRepository extends ServiceEntityRepository
         parent::__construct($registry, Listing::class);
     }
 
-    //    /**
-    //     * @return Listing[] Returns an array of Listing objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('l')
-    //            ->andWhere('l.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('l.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function findByPropertyType(PropertyTypeEnum $propertyType)
+    {
+        $qb = $this->createQueryBuilder('l');
 
-    //    public function findOneBySomeField($value): ?Listing
-    //    {
-    //        return $this->createQueryBuilder('l')
-    //            ->andWhere('l.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        $qb
+            ->select('l, p')
+            ->join('l.propertyType', 'p')
+            ->where('p.name = :name')
+            ->setParameter('name', $propertyType)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }

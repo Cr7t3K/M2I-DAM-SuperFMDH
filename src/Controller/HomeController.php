@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Enum\PropertyTypeEnum;
 use App\Repository\ListingRepository;
 use App\Repository\PropertyTypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,11 +20,8 @@ final class HomeController extends AbstractController
         ListingRepository $listingRepository,
     ): Response
     {
-        $housePropertyType = $propertyTypeRepository->findOneBy(['name' => 'House']);
-        $apartmentPropertyType = $propertyTypeRepository->findOneBy(['name' => 'Apartment']);
-
-        $listingsHouse = $listingRepository->findBy(['propertyType' => $housePropertyType]);
-        $listingsApartment = $listingRepository->findBy(['propertyType' => $apartmentPropertyType]);
+        $listingsHouse = $listingRepository->findByPropertyType(PropertyTypeEnum::HOUSE);
+        $listingsApartment = $listingRepository->findByPropertyType(PropertyTypeEnum::APARTMENT);
 
         return $this->render('home/index.html.twig', [
             'houses' => $listingsHouse,
